@@ -36,8 +36,37 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^5.0.3",
+    "@types/jest": "^26.0.20",
     "@types/react": "^17.0.1",
     "@types/react-dom": "^17.0.0",
     "typescript": "^4.1.3"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.spec.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0
+      }
+    },
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{ts,tsx}",
+      "!<rootDir>/src/**/dtos/*",
+      "!<rootDir>/src/**/models/*",
+      "!<rootDir>/src/**/fakes/*",
+      "!<rootDir>/src/**/*.d.ts",
+      "!<rootDir>/src/modules/**/services/index.ts",
+      "!<rootDir>/src/shared/infra/cache/index.ts",
+      "!<rootDir>/src/shared/infra/routes/*",
+      "!<rootDir>/src/shared/infra/App.tsx",
+      "!<rootDir>/src/**/hooks/context/index.tsx",
+      "!<rootDir>/src/assets/**/*",
+      "!<rootDir>/src/index.tsx",
+      "!<rootDir>/src/**/styles.ts"
+    ]
   }
 }

@@ -75,6 +75,7 @@
       "!<rootDir>/src/**/*.d.ts",
       "!<rootDir>/src/modules/**/services/index.ts",
       "!<rootDir>/src/shared/infra/cache/index.ts",
+      "!<rootDir>/src/shared/infra/httpClient/index.ts",
       "!<rootDir>/src/shared/infra/routes/*",
       "!<rootDir>/src/shared/infra/App.tsx",
       "!<rootDir>/src/**/hooks/context/index.tsx",

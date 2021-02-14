@@ -1,10 +1,10 @@
-import ICache from '../models/ICache';
+import ICacheModel from '../models/ICache.model';
 
 interface ICacheData {
   [key: string]: string;
 }
 
-class FakeLocalStorage implements ICache {
+class FakeLocalStorage implements ICacheModel {
   private storage: ICacheData = {};
 
   public get<T>(key: string): T | null {

@@ -1,6 +1,6 @@
-import ICache from '../models/ICache';
+import ICacheModel from '../models/ICache.model';
 
-class LocalStorage implements ICache {
+class LocalStorage implements ICacheModel {
   private storage: Storage;
 
   constructor() {

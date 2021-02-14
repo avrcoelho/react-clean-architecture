@@ -60,6 +60,9 @@
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.spec.{ts,tsx}"
     ],
+    "moduleNameMapper": {
+      "@/(.*)": "<rootDir>/src/$1"
+    },
     "coverageThreshold": {
       "global": {
         "branches": 0,
@@ -75,6 +78,7 @@
       "!<rootDir>/src/**/*.d.ts",
       "!<rootDir>/src/modules/**/services/index.ts",
       "!<rootDir>/src/shared/infra/cache/index.ts",
+      "!<rootDir>/src/shared/core/*.ts",
       "!<rootDir>/src/shared/infra/httpClient/index.ts",
       "!<rootDir>/src/shared/infra/routes/*",
       "!<rootDir>/src/shared/infra/App.tsx",

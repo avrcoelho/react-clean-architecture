@@ -1,5 +1,5 @@
-import ICache from '../../../shared/infra/cache/models/ICache.model';
-import IHttpClientModel from '../../../shared/infra/http/httpClient/models/IHttpClient.model';
+import ICache from '@/shared/infra/cache/models/ICache.model';
+import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
 import ISignInDTO from '../dtos/ISignIn.dto';
 import ISignInModel from '../models/ISignIn.model';
 

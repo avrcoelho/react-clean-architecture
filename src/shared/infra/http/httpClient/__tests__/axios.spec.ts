@@ -1,9 +1,9 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import AxiosHttpClient from '..';
+import Axios from '../implementation/Axios';
 
-let axiosHttpClient: AxiosHttpClient;
+let axios: Axios;
 
 const BASE_URL = process.env.REACT_APP_API;
 
@@ -19,11 +19,11 @@ const server = setupServer(
   }),
 );
 
-describe('axios-http-client', () => {
+describe('Axios', () => {
   beforeAll(() => server.listen());
 
   beforeEach(() => {
-    axiosHttpClient = new AxiosHttpClient();
+    axios = new Axios();
   });
 
   afterEach(() => server.resetHandlers());
@@ -31,19 +31,19 @@ describe('axios-http-client', () => {
   afterAll(() => server.close());
 
   it('should be able to return data on method GET', async () => {
-    const { data } = await axiosHttpClient.get({ url: '/' });
+    const { data } = await axios.get({ url: '/' });
 
     expect(data).toEqual(['a', 'b', 'c']);
   });
 
   it('should be able to return data on method POST', async () => {
-    const { data } = await axiosHttpClient.post({ url: '/' });
+    const { data } = await axios.post({ url: '/' });
 
     expect(data).toEqual({ success: true });
   });
 
   it('should be able to DELETE', async () => {
-    const { data } = await axiosHttpClient.delete({ url: '/' });
+    const { data } = await axios.delete({ url: '/' });
 
     expect(data).toEqual({ success: true });
   });

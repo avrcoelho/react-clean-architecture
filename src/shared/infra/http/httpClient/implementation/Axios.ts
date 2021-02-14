@@ -1,9 +1,9 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-import { IApiDeleteDTO, IApiGetDTO, IApiPostDTO } from './dtos/IApi.dto';
-import IHttpClientMOdel from './models/IHttpClient.model';
+import { IApiDeleteDTO, IApiGetDTO, IApiPostDTO } from '../dtos/IApi.dto';
+import IHttpClientModel from '../models/IHttpClient.model';
 
-class AxiosHttpClient implements IHttpClientMOdel {
+class AxiosHttpClient implements IHttpClientModel {
   private baseUrl: string | undefined;
 
   private axiosInstance: AxiosInstance;

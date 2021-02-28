@@ -15,6 +15,16 @@ class SignInBuilder {
     return this;
   }
 
+  public withEmptyEmail(): SignInBuilder {
+    this.signInData.email = '';
+    return this;
+  }
+
+  public withEmptyPassword(): SignInBuilder {
+    this.signInData.password = '';
+    return this;
+  }
+
   public build(): ISignInDTO {
     return this.signInData;
   }

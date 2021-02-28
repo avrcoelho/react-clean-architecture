@@ -5,7 +5,9 @@ import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.
 import ICacheModel from '@/shared/infra/cache/models/ICache.model';
 import HttpClient from '@/shared/infra/http/httpClient';
 import Cache from '@/shared/infra/cache';
+import SignInBuilder from '../../__tests__/builders/SignIn.builder';
 import SignInService from '../SignIn.service';
+import ISignInDTO from '../../dtos/ISignIn.dto';
 
 const BASE_URL = process.env.REACT_APP_API;
 const server = setupServer(
@@ -38,7 +40,8 @@ describe('SignIn service', () => {
 
   it('should be able to auth have success', async () => {
     const spyCache = jest.spyOn(cache, 'save');
-    await signInService.execute({ email: 'johndoe@test.com', password: '123' });
+    const signInData: ISignInDTO = SignInBuilder.aSignInData().build();
+    await signInService.execute(signInData);
 
     expect(spyCache).toHaveBeenCalled();
   });

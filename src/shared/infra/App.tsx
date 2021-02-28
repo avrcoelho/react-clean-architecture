@@ -1,5 +1,7 @@
+import SignIn from '@/modules/user/pages/SignIn';
+
 function App(): JSX.Element {
-  return <h1>Hello world</h1>;
+  return <SignIn />;
 }
 
 export default App;

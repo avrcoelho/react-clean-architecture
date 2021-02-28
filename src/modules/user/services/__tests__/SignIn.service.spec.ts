@@ -39,10 +39,30 @@ describe('SignIn service', () => {
   afterAll(() => server.close());
 
   it('should be able to auth have success', async () => {
-    const spyCache = jest.spyOn(cache, 'save');
     const signInData: ISignInDTO = SignInBuilder.aSignInData().build();
-    await signInService.execute(signInData);
+    const responseSignIn = await signInService.execute(signInData);
 
-    expect(spyCache).toHaveBeenCalled();
+    expect(responseSignIn.value).toEqual({
+      token: 'ijosjioads',
+      id: '123',
+      fullname: 'John Doe',
+    });
+  });
+
+  it('should be able to return error', async () => {
+    server.use(
+      rest.post(`${BASE_URL}/auth/login`, (req, res, ctx) => {
+        return res(
+          ctx.status(500),
+          ctx.json({
+            message: 'Internal server error',
+          }),
+        );
+      }),
+    );
+    const signInData: ISignInDTO = SignInBuilder.aSignInData().build();
+    const responseSignIn = await signInService.execute(signInData);
+
+    expect(responseSignIn.isLeft()).toBe(true);
   });
 });

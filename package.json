@@ -85,7 +85,8 @@
       "!<rootDir>/src/**/hooks/context/index.tsx",
       "!<rootDir>/src/assets/**/*",
       "!<rootDir>/src/index.tsx",
-      "!<rootDir>/src/**/styles.ts"
+      "!<rootDir>/src/**/styles.ts",
+      "!<rootDir>/src/**/__tests__/builders/*"
     ]
   }
 }

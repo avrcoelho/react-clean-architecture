@@ -1,24 +1,18 @@
-import ICache from '@/shared/infra/cache/models/ICache.model';
 import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
-import ISignInDTO from '../dtos/ISignIn.dto';
-import ISignInModel from '../models/ISignIn.model';
+import IUserDTO from '../dtos/IUser.dto';
+import IUserModel from '../models/IUser.model';
 
-class SignInService {
-  constructor(
-    private readonly httpClient: IHttpClientModel,
-    private readonly cache: ICache,
-  ) {}
+class CreateUserService {
+  constructor(private readonly httpClient: IHttpClientModel) {}
 
-  async execute(signInData: ISignInDTO): Promise<void> {
-    const { data } = await this.httpClient.post<ISignInModel>({
-      url: '/auth/login',
-      data: signInData,
+  async execute(userData: IUserDTO): Promise<IUserModel> {
+    const { data } = await this.httpClient.post<IUserModel>({
+      url: '/users',
+      data: userData,
     });
 
-    const parsedSignInResponse = JSON.stringify(data);
-
-    this.cache.save('@userData', parsedSignInResponse);
+    return data;
   }
 }
 
-export default SignInService;
+export default CreateUserService;

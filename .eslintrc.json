@@ -41,6 +41,7 @@
       "react/require-default-props": "off",
       "no-useless-constructor": "off",
       "max-classes-per-file": 2,
+      "no-use-before-define": "off",
       "@typescript-eslint/explicit-function-return-type": [
         "error",
         {

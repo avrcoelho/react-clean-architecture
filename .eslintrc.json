@@ -56,6 +56,12 @@
           "tsx": "never",
           "js": "never"
         }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": ["**/*.test.{js,ts,tsx}", "**/*.spec.{js,ts,tsx}"]
+        }
       ]
     },
     "settings": {

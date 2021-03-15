@@ -13,7 +13,7 @@ describe('useYupValidationResolver hook', () => {
       useYupValidationResolver(validationSchema),
     );
 
-    const response = await result.current.resolver({});
+    const response = await result.current({});
 
     expect(response.errors).toHaveProperty('email');
   });
@@ -23,7 +23,7 @@ describe('useYupValidationResolver hook', () => {
       useYupValidationResolver(validationSchema),
     );
 
-    const response = await result.current.resolver({ email: 'john@doe.com' });
+    const response = await result.current({ email: 'john@doe.com' });
 
     expect(response.errors).toEqual({});
   });
@@ -33,7 +33,7 @@ describe('useYupValidationResolver hook', () => {
       useYupValidationResolver({} as Yup.ObjectSchema<any>),
     );
 
-    const response = await result.current.resolver({ email: 'john@doe.com' });
+    const response = await result.current({ email: 'john@doe.com' });
 
     expect(response.values).toEqual({});
   });

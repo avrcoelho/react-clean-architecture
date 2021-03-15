@@ -10,15 +10,11 @@ interface IResponse {
   values: any;
 }
 
-type Hook = <TData = any>(
+export const useYupValidationResolver = <TData = any>(
   validationSchema: Yup.ObjectSchema<any>,
-) => {
-  resolver(data: TData): Promise<IResponse>;
-};
-
-export const useYupValidationResolver: Hook = validationSchema => {
-  const resolver = useCallback(
-    async <TData = any>(data: TData): Promise<IResponse> => {
+) =>
+  useCallback(
+    async (data: TData): Promise<IResponse> => {
       try {
         const values = await validationSchema.validate(data, {
           abortEarly: false,
@@ -42,6 +38,3 @@ export const useYupValidationResolver: Hook = validationSchema => {
     },
     [validationSchema],
   );
-
-  return { resolver };
-};

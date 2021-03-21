@@ -1,7 +1,6 @@
 import { InputHTMLAttributes, LegacyRef } from 'react';
 
-interface InputTextProps
-  extends InputHTMLAttributes<Omit<HTMLInputElement, 'ref'>> {
+interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   register: LegacyRef<HTMLInputElement>;
   error?: string;
 }
@@ -12,11 +11,11 @@ const InputText = ({
   ...rest
 }: InputTextProps): JSX.Element => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mb-4">
       <input
         type="text"
         ref={register}
-        className={`w-full max-w-md h-10 bg-transparent border ${
+        className={`w-full max-w-md h-10 bg-transparent border-2 ${
           error ? 'border-red-400' : 'border-gray-600'
         }  rounded px-3 text-white`}
         {...rest}

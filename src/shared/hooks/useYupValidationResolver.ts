@@ -1,20 +1,14 @@
 import { useCallback } from 'react';
+import { ResolverError, ResolverSuccess } from 'react-hook-form';
 import * as Yup from 'yup';
 
 import getValidationYupErrors from '../utils/getValidationYupErros';
-
-interface IResponse {
-  errors: {
-    [key: string]: string;
-  };
-  values: any;
-}
 
 export const useYupValidationResolver = <TData = any>(
   validationSchema: Yup.ObjectSchema<any>,
 ) =>
   useCallback(
-    async (data: TData): Promise<IResponse> => {
+    async (data: TData): Promise<ResolverSuccess | ResolverError> => {
       try {
         const values = await validationSchema.validate(data, {
           abortEarly: false,

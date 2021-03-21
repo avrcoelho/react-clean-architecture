@@ -1,11 +1,14 @@
 import { renderHook } from '@testing-library/react-hooks';
 import * as Yup from 'yup';
 
+import inputMessages from '../../contants/inputMessages';
 import { useYupValidationResolver } from '../useYupValidationResolver';
 
 describe('useYupValidationResolver hook', () => {
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email().required(),
+    email: Yup.string()
+      .email(inputMessages.invalidEmail)
+      .required(inputMessages.requiredFiel),
   });
 
   it('should be able to return yup errors', async () => {

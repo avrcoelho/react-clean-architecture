@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 
 import InputText from '@/shared/components/inputs/Text';
 import { useYupValidationResolver } from '@/shared/hooks/useYupValidationResolver';
+import ButtonDefault from '@/shared/components/Buttons/Default';
 import signInSchema from '../../schemas/signin.schema';
 
 const SignIn = (): JSX.Element => {
@@ -27,7 +28,7 @@ const SignIn = (): JSX.Element => {
           register={register}
           error={errors.password}
         />
-        <input type="submit" />
+        <ButtonDefault type="submit">Acessar</ButtonDefault>
       </form>
     </main>
   );

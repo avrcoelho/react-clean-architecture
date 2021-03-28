@@ -10,15 +10,14 @@ import SignInService from '../SignIn.service';
 import ISignInDTO from '../../dtos/ISignIn.dto';
 
 const BASE_URL = process.env.REACT_APP_API;
+const signInResponse = {
+  token: 'ijosjioads',
+  id: '123',
+  fullname: 'John Doe',
+};
 const server = setupServer(
   rest.post(`${BASE_URL}/auth/login`, (req, res, ctx) => {
-    return res(
-      ctx.json({
-        token: 'ijosjioads',
-        id: '123',
-        fullname: 'John Doe',
-      }),
-    );
+    return res(ctx.json(signInResponse));
   }),
 );
 let httpClient: IHttpClientModel;
@@ -42,11 +41,7 @@ describe('SignIn service', () => {
     const signInData: ISignInDTO = SignInBuilder.aSignInData().build();
     const responseSignIn = await signInService.execute(signInData);
 
-    expect(responseSignIn.value).toEqual({
-      token: 'ijosjioads',
-      id: '123',
-      fullname: 'John Doe',
-    });
+    expect(responseSignIn.value).toEqual(signInResponse);
   });
 
   it('should be able to return error', async () => {

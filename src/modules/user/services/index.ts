@@ -1,9 +1,11 @@
 import HttpClient from '@/shared/infra/http/httpClient';
 import Cache from '@/shared/infra/cache';
 import SignInService from './SignIn.service';
+import SignUpService from './SignUp.service';
 
 const httpClient = new HttpClient();
 const cache = new Cache();
 const signInService = new SignInService(httpClient, cache);
+const signUpService = new SignUpService(httpClient);
 
-export { signInService };
+export { signInService, signUpService };

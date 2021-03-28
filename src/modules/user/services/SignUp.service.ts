@@ -3,7 +3,7 @@ import { left, right, Either } from '@/shared/core/Either';
 import IUserDTO from '../dtos/IUser.dto';
 import IUserModel from '../models/IUser.model';
 
-class CreateUserService {
+class SignUpService {
   constructor(private readonly httpClient: IHttpClientModel) {}
 
   async execute(userData: IUserDTO): Promise<Either<unknown, IUserModel>> {
@@ -20,4 +20,4 @@ class CreateUserService {
   }
 }
 
-export default CreateUserService;
+export default SignUpService;

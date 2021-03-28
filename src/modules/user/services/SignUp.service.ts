@@ -6,7 +6,7 @@ import IUserModel from '../models/IUser.model';
 class SignUpService {
   constructor(private readonly httpClient: IHttpClientModel) {}
 
-  async execute(userData: IUserDTO): Promise<Either<unknown, IUserModel>> {
+  async execute(userData: IUserDTO): Promise<Either<any, IUserModel>> {
     try {
       const { data } = await this.httpClient.post<IUserModel>({
         url: '/users',

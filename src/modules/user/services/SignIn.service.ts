@@ -10,9 +10,7 @@ class SignInService {
     private readonly cache: ICache,
   ) {}
 
-  async execute(
-    signInData: ISignInDTO,
-  ): Promise<Either<unknown, ISignInModel>> {
+  async execute(signInData: ISignInDTO): Promise<Either<any, ISignInModel>> {
     try {
       const { data } = await this.httpClient.post<ISignInModel>({
         url: '/auth/login',

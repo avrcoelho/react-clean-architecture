@@ -18,7 +18,7 @@ jest.mock('react-router-dom', () => ({
 const spyOnSignInService = jest.spyOn(signInService, 'execute');
 
 describe('SignIn hook', () => {
-  it('should be able to have success login', async () => {
+  it('should be able to have success signip', async () => {
     spyOnSignInService.mockImplementation(async () =>
       right({} as ISignInModel),
     );
@@ -33,7 +33,7 @@ describe('SignIn hook', () => {
     expect(mockHistoryPush).toHaveBeenCalled();
   });
 
-  it('should be able to have error login', async () => {
+  it('should be able to have error signip', async () => {
     spyOnSignInService.mockImplementation(async () => left('has error'));
     const spyToastError = jest.spyOn(toast, 'error');
     const signInData: ISignInDTO = SignInBuilder.aSignInData().build();

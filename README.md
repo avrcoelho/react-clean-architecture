@@ -1,1 +1,1 @@
-# React DDD APlication
+# React Celan Architeture APlication

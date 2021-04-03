@@ -1,1 +1,1 @@
-# React Celan Architeture APlication
+# React Clean Architeture Aplication

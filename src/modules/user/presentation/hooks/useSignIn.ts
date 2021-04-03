@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 
-import { signInUsecase } from '../../services';
+import { signInUsecase } from '../../usecases';
 import { ISignInArgs } from '../../domain/usecases/ISignIn.usecase';
 
 type SignInHook = () => {

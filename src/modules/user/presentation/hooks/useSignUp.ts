@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 import { ErrorOption } from 'react-hook-form';
 
-import { signUpUsecase } from '../../services';
+import { signUpUsecase } from '../../usecases';
 import { IUserArgs } from '../../domain/usecases/ISignUp.usecase';
 
 type Args = {

@@ -5,7 +5,7 @@ import { left, right } from '@/shared/core/Either';
 import { useSignUp } from '../useSignUp';
 import SignUpBuilder from '../../../__tests__/builders/User.builder';
 import IUserModel from '../../../domain/models/IUser.model';
-import { signUpUsecase } from '../../../services';
+import { signUpUsecase } from '../../../usecases';
 import { IUserArgs } from '../../../domain/usecases/ISignUp.usecase';
 
 const mockHistoryPush = jest.fn();

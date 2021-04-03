@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 import { ErrorOption } from 'react-hook-form';
 
-import IUserDTO from '../dtos/IUser.dto';
-import { signUpService } from '../services';
+import { signUpUsecase } from '../../services';
+import { IUserArgs } from '../../domain/usecases/ISignUp.usecase';
 
 type Args = {
   setError: (name: string, error: ErrorOption) => void;
@@ -13,7 +13,7 @@ type Args = {
 type UseSignUpHook = (
   args: Args,
 ) => {
-  signUp(data: IUserDTO): Promise<void>;
+  signUp(data: IUserArgs): Promise<void>;
   isLoading: boolean;
 };
 
@@ -36,10 +36,10 @@ export const useSignUp: UseSignUpHook = ({ setError }) => {
   );
 
   const signUp = useCallback(
-    async (data: IUserDTO) => {
+    async (data: IUserArgs) => {
       setIsLoading(true);
 
-      const response = await signUpService.execute(data);
+      const response = await signUpUsecase.execute(data);
       if (response.isRight()) {
         toast.success('Cadastro realizado com sucesso');
         history.push('/');

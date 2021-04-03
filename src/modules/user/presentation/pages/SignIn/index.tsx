@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
 
-import InputText from '@/shared/components/inputs/Text';
-import { useYupValidationResolver } from '@/shared/hooks/useYupValidationResolver';
-import ButtonDefault from '@/shared/components/Buttons/Default';
-import signInSchema from '../../schemas/signin.schema';
+import InputText from '@/shared/presentation/components/inputs/Text';
+import { useYupValidationResolver } from '@/shared/presentation/hooks/useYupValidationResolver';
+import ButtonDefault from '@/shared/presentation/components/Buttons/Default';
+import signInValidator from '../../validators/signin.validator';
 
 const SignIn = (): JSX.Element => {
-  const resolver = useYupValidationResolver(signInSchema);
+  const resolver = useYupValidationResolver(signInValidator);
   const { handleSubmit, register, errors } = useForm({ resolver });
 
   return (

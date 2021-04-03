@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { ResolverError, ResolverSuccess } from 'react-hook-form';
 import * as Yup from 'yup';
 
-import validationYupErrorsMapper from '../mappers/validationYupErrors.mapper';
+import validationYupErrorsMapper from '../utils/validationYupErrors';
 
 export const useYupValidationResolver = <TData = any>(
   validationSchema: Yup.ObjectSchema<any>,

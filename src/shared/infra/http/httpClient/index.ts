@@ -1,7 +1,7 @@
 import Axios from './implementation/Axios';
 
 const providers = {
-  Axios,
+  Axios: new Axios(),
 };
 
 export default providers.Axios;

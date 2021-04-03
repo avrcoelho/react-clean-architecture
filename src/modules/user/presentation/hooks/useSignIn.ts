@@ -2,11 +2,11 @@ import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 
-import ISignInDTO from '../dtos/ISignIn.dto';
-import { signInService } from '../services';
+import { signInUsecase } from '../../services';
+import { ISignInArgs } from '../../domain/usecases/ISignIn.usecase';
 
 type SignInHook = () => {
-  signIn(data: ISignInDTO): Promise<void>;
+  signIn(data: ISignInArgs): Promise<void>;
   isLoading: boolean;
 };
 
@@ -15,10 +15,10 @@ export const useSignIn: SignInHook = () => {
   const history = useHistory();
 
   const signIn = useCallback(
-    async (data: ISignInDTO) => {
+    async (data: ISignInArgs) => {
       setIsLoading(true);
 
-      const response = await signInService.execute(data);
+      const response = await signInUsecase.execute(data);
       if (response.isRight()) {
         history.push('/dashboard');
       } else {

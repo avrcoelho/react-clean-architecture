@@ -1,6 +1,10 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-import { IApiDeleteDTO, IApiGetDTO, IApiPostDTO } from '../dtos/IApi.dto';
+import {
+  IHttpClientDeleteDTO,
+  IHttpClientGetDTO,
+  IHttpClientPostDTO,
+} from '../dtos/IHttpClient.dto';
 import IHttpClientModel from '../models/IHttpClient.model';
 
 class AxiosHttpClient implements IHttpClientModel {
@@ -17,7 +21,7 @@ class AxiosHttpClient implements IHttpClientModel {
     url,
     params = null,
     headers = null,
-  }: IApiGetDTO): Promise<AxiosResponse<TResponse>> {
+  }: IHttpClientGetDTO): Promise<AxiosResponse<TResponse>> {
     return this.axiosInstance({
       method: 'GET',
       url: `${this.baseUrl}${url}`,
@@ -31,7 +35,7 @@ class AxiosHttpClient implements IHttpClientModel {
     params = null,
     data = null,
     headers = null,
-  }: IApiPostDTO): Promise<AxiosResponse<TResponse>> {
+  }: IHttpClientPostDTO): Promise<AxiosResponse<TResponse>> {
     return this.axiosInstance({
       method: 'POST',
       url: `${this.baseUrl}${url}`,
@@ -45,7 +49,7 @@ class AxiosHttpClient implements IHttpClientModel {
     url,
     params = null,
     headers = null,
-  }: IApiDeleteDTO): Promise<AxiosResponse<TResponse>> {
+  }: IHttpClientDeleteDTO): Promise<AxiosResponse<TResponse>> {
     return this.axiosInstance({
       method: 'DELETE',
       url: `${this.baseUrl}${url}`,

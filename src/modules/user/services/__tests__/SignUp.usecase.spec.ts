@@ -1,11 +1,10 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
-import HttpClient from '@/shared/infra/http/httpClient';
+import HttpClient from '@/shared/infra/http/httpClient/implementation/Axios';
 import UserBuilder from '../../__tests__/builders/User.builder';
-import SignUpService from '../SignUp.service';
-import IUserDTO from '../../dtos/IUser.dto';
+import SignUpService from '../SignUp.usecase';
+import { IUserArgs } from '../../domain/usecases/ISignUp.usecase';
 
 const BASE_URL = process.env.REACT_APP_API;
 const userResponse = {
@@ -19,7 +18,7 @@ const server = setupServer(
     return res(ctx.json(userResponse));
   }),
 );
-let httpClient: IHttpClientModel;
+let httpClient: HttpClient;
 let signUpService: SignUpService;
 
 describe('SignUp service', () => {
@@ -35,7 +34,7 @@ describe('SignUp service', () => {
   afterAll(() => server.close());
 
   it('should be able to create user', async () => {
-    const signInData: IUserDTO = UserBuilder.aUser().build();
+    const signInData: IUserArgs = UserBuilder.aUser().build();
     const responseSignUp = await signUpService.execute(signInData);
 
     expect(responseSignUp.value).toEqual(userResponse);
@@ -52,7 +51,7 @@ describe('SignUp service', () => {
         );
       }),
     );
-    const signInData: IUserDTO = UserBuilder.aUser().build();
+    const signInData: IUserArgs = UserBuilder.aUser().build();
     const responseSignUp = await signUpService.execute(signInData);
 
     expect(responseSignUp.isLeft()).toBe(true);

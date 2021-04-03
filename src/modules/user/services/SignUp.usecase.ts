@@ -1,12 +1,12 @@
 import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
 import { left, right, Either } from '@/shared/core/Either';
-import IUserDTO from '../dtos/IUser.dto';
-import IUserModel from '../models/IUser.model';
+import IUserModel from '../domain/models/IUser.model';
+import { ISignUpUsecase, IUserArgs } from '../domain/usecases/ISignUp.usecase';
 
-class SignUpService {
+class SignUpUsecase implements ISignUpUsecase {
   constructor(private readonly httpClient: IHttpClientModel) {}
 
-  async execute(userData: IUserDTO): Promise<Either<any, IUserModel>> {
+  async execute(userData: IUserArgs): Promise<Either<any, IUserModel>> {
     try {
       const { data } = await this.httpClient.post<IUserModel>({
         url: '/users',
@@ -20,4 +20,4 @@ class SignUpService {
   }
 }
 
-export default SignUpService;
+export default SignUpUsecase;

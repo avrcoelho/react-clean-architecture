@@ -4,9 +4,7 @@ interface Errors {
   [key: string]: string;
 }
 
-export default function validationYupErrorsMapper(
-  error: ValidationError,
-): Errors {
+export default function validationYupErrors(error: ValidationError): Errors {
   const validationErros: Errors = {};
 
   error.inner.forEach(err => {

@@ -93,12 +93,13 @@
       "!<rootDir>/src/shared/core/*.ts",
       "!<rootDir>/src/shared/infra/httpClient/index.ts",
       "!<rootDir>/src/shared/infra/routes/*",
-      "!<rootDir>/src/shared/infra/App.tsx",
+      "!<rootDir>/src/shared/presentation/App.tsx",
       "!<rootDir>/src/**/hooks/context/index.tsx",
       "!<rootDir>/src/assets/**/*",
       "!<rootDir>/src/index.tsx",
       "!<rootDir>/src/**/styles.ts",
-      "!<rootDir>/src/**/__tests__/builders/*"
+      "!<rootDir>/src/**/__tests__/builders/*",
+      "!<rootDir>/src/**/domain/usecases/*"
     ]
   }
 }

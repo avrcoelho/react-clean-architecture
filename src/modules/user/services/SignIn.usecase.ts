@@ -1,16 +1,19 @@
 import ICache from '@/shared/infra/cache/models/ICache.model';
 import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
 import { left, right, Either } from '@/shared/core/Either';
-import ISignInDTO from '../dtos/ISignIn.dto';
-import ISignInModel from '../models/ISignIn.model';
+import ISignInModel from '../domain/models/ISignIn.model';
+import {
+  ISignInArgs,
+  ISignInUsecase,
+} from '../domain/usecases/ISignIn.usecase';
 
-class SignInService {
+class SignInUsecase implements ISignInUsecase {
   constructor(
     private readonly httpClient: IHttpClientModel,
     private readonly cache: ICache,
   ) {}
 
-  async execute(signInData: ISignInDTO): Promise<Either<any, ISignInModel>> {
+  async execute(signInData: ISignInArgs): Promise<Either<any, ISignInModel>> {
     try {
       const { data } = await this.httpClient.post<ISignInModel>({
         url: '/auth/login',
@@ -28,4 +31,4 @@ class SignInService {
   }
 }
 
-export default SignInService;
+export default SignInUsecase;

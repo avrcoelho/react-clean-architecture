@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 
-import inputMessages from '@/shared/contants/inputMessages';
+import inputMessages from '@/shared/presentation/contants/inputMessages';
 
-const signInSchema = yup.object({
+const signInValidator = yup.object({
   email: yup
     .string()
     .email(inputMessages.invalidEmail)
@@ -10,4 +10,4 @@ const signInSchema = yup.object({
   password: yup.string().required(inputMessages.requiredFiel),
 });
 
-export default signInSchema;
+export default signInValidator;

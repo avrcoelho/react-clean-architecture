@@ -1,7 +1,7 @@
 import LocalStorage from './implementation/LocalStorage';
 
 const providers = {
-  LocalStorage,
+  LocalStorage: new LocalStorage(),
 };
 
 export default providers.LocalStorage;

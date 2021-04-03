@@ -1,11 +1,9 @@
-import HttpClient from '@/shared/infra/http/httpClient';
-import Cache from '@/shared/infra/cache';
-import SignInService from './SignIn.service';
-import SignUpService from './SignUp.service';
+import httpClient from '@/shared/infra/http/httpClient';
+import cache from '@/shared/infra/cache';
+import SignInUsecase from './SignIn.usecase';
+import SignUpUsecase from './SignUp.usecase';
 
-const httpClient = new HttpClient();
-const cache = new Cache();
-const signInService = new SignInService(httpClient, cache);
-const signUpService = new SignUpService(httpClient);
+const signInUsecase = new SignInUsecase(httpClient, cache);
+const signUpUsecase = new SignUpUsecase(httpClient);
 
-export { signInService, signUpService };
+export { signInUsecase, signUpUsecase };

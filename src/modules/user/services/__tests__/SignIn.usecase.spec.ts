@@ -1,13 +1,12 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
 import ICacheModel from '@/shared/infra/cache/models/ICache.model';
-import HttpClient from '@/shared/infra/http/httpClient';
-import Cache from '@/shared/infra/cache';
+import HttpClient from '@/shared/infra/http/httpClient/implementation/Axios';
+import Cache from '@/shared/infra/cache/implementation/LocalStorage';
 import SignInBuilder from '../../__tests__/builders/SignIn.builder';
-import SignInService from '../SignIn.service';
-import ISignInDTO from '../../dtos/ISignIn.dto';
+import SignInUsecase from '../SignIn.usecase';
+import { ISignInArgs } from '../../domain/usecases/ISignIn.usecase';
 
 const BASE_URL = process.env.REACT_APP_API;
 const signInResponse = {
@@ -20,17 +19,17 @@ const server = setupServer(
     return res(ctx.json(signInResponse));
   }),
 );
-let httpClient: IHttpClientModel;
+let httpClient: HttpClient;
 let cache: ICacheModel;
-let signInService: SignInService;
+let signInService: SignInUsecase;
 
-describe('SignIn service', () => {
+describe('SignIn usecase', () => {
   beforeAll(() => server.listen());
 
   beforeEach(() => {
     httpClient = new HttpClient();
     cache = new Cache();
-    signInService = new SignInService(httpClient, cache);
+    signInService = new SignInUsecase(httpClient, cache);
   });
 
   afterEach(() => server.resetHandlers());
@@ -38,7 +37,7 @@ describe('SignIn service', () => {
   afterAll(() => server.close());
 
   it('should be able to auth have success', async () => {
-    const signInData: ISignInDTO = SignInBuilder.aSignInData().build();
+    const signInData: ISignInArgs = SignInBuilder.aSignInData().build();
     const responseSignIn = await signInService.execute(signInData);
 
     expect(responseSignIn.value).toEqual(signInResponse);
@@ -55,7 +54,7 @@ describe('SignIn service', () => {
         );
       }),
     );
-    const signInData: ISignInDTO = SignInBuilder.aSignInData().build();
+    const signInData: ISignInArgs = SignInBuilder.aSignInData().build();
     const responseSignIn = await signInService.execute(signInData);
 
     expect(responseSignIn.isLeft()).toBe(true);

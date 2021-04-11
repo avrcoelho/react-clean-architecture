@@ -40,10 +40,11 @@
       "react/jsx-one-expression-per-line": "off",
       "react/require-default-props": "off",
       "no-useless-constructor": "off",
-      "max-classes-per-file": 2,
+      "max-classes-per-file": "off",
       "no-use-before-define": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/explicit-function-return-type":"off",
+      "class-methods-use-this":"off",
       "import/extensions": [
         "error",
         "ignorePackages",

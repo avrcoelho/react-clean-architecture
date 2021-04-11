@@ -1,5 +1,9 @@
 import { useCallback } from 'react';
-import { ResolverError, ResolverSuccess } from 'react-hook-form';
+import {
+  ResolverError,
+  ResolverSuccess,
+  UnpackNestedValue,
+} from 'react-hook-form';
 import * as Yup from 'yup';
 
 import validationYupErrorsMapper from '../utils/validationYupErrors';
@@ -8,11 +12,11 @@ export const useYupValidationResolver = <TData = any>(
   validationSchema: Yup.ObjectSchema<any>,
 ) =>
   useCallback(
-    async (data: TData): Promise<ResolverSuccess | ResolverError> => {
+    async (data: TData): Promise<ResolverSuccess<TData> | ResolverError> => {
       try {
-        const values = await validationSchema.validate(data, {
+        const values = (await validationSchema.validate(data, {
           abortEarly: false,
-        });
+        })) as UnpackNestedValue<TData>;
 
         return {
           values,

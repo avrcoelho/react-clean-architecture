@@ -9,7 +9,7 @@ import { ISignInArgs } from '../../../domain/usecases/ISignIn.usecase';
 
 const SignIn = (): JSX.Element => {
   const resolver = useYupValidationResolver<ISignInArgs>(signInValidator);
-  const { signIn } = useSignIn();
+  const { signIn, isLoading } = useSignIn();
   const { handleSubmit, register, errors } = useForm<ISignInArgs>({ resolver });
 
   return (
@@ -31,7 +31,9 @@ const SignIn = (): JSX.Element => {
           register={register}
           error={errors.password?.message}
         />
-        <ButtonDefault type="submit">Acessar</ButtonDefault>
+        <ButtonDefault type="submit" disabled={isLoading}>
+          {isLoading ? 'Aguarde...' : 'Acessar'}
+        </ButtonDefault>
       </form>
     </main>
   );

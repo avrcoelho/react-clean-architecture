@@ -99,7 +99,8 @@
       "!<rootDir>/src/index.tsx",
       "!<rootDir>/src/**/styles.ts",
       "!<rootDir>/src/**/__tests__/builders/*",
-      "!<rootDir>/src/**/domain/usecases/*"
+      "!<rootDir>/src/**/domain/usecases/*",
+      "!<rootDir>/src/**/constants/*"
     ]
   }
 }

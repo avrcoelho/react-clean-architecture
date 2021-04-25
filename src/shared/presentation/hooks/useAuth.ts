@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import cache from '@/shared/infra/cache/';
-import CacheKeys from '@/shared/presentation/contants/cacheKeys';
+import CacheKeys from '@/shared/presentation/constants/cacheKeys';
 
 type Hook = () => boolean;
 

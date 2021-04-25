@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import * as Yup from 'yup';
 
-import InputMessages from '../../contants/inputMessages';
+import InputMessages from '../../constants/inputMessages';
 import { useYupValidationResolver } from '../useYupValidationResolver';
 
 describe('useYupValidationResolver hook', () => {

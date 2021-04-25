@@ -1,7 +1,7 @@
 import ICache from '@/shared/infra/cache/models/ICache.model';
 import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
 import { left, right, Either } from '@/shared/core/Either';
-import CacheKeys from '@/shared/presentation/contants/cacheKeys';
+import CacheKeys from '@/shared/presentation/constants/cacheKeys';
 import ISignInModel from '../domain/models/ISignIn.model';
 import {
   ISignInArgs,

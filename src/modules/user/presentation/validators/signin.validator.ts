@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import InputMessages from '@/shared/presentation/contants/inputMessages';
+import InputMessages from '@/shared/presentation/constants/inputMessages';
 
 const signInValidator = yup.object({
   email: yup

@@ -37,7 +37,7 @@ const SignIn = (): JSX.Element => {
         </ButtonDefault>
       </form>
 
-      <Link to="/singup" className="text-purple-800 hover:underline mt-4">
+      <Link to="/signup" className="text-purple-800 hover:underline mt-4">
         Criar conta
       </Link>
     </main>

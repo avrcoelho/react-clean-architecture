@@ -21,7 +21,7 @@ const SignUp = (): JSX.Element => {
         onSubmit={handleSubmit(signUp)}
         className="w-full max-w-sm border-2 p-4 border-gray-600 rounded"
       >
-        <h1 className="text-gray-400 mb-4">Acessar conta</h1>
+        <h1 className="text-gray-400 mb-4">Criar conta</h1>
         <InputText
           name="fullname"
           placeholder="Nome completo"

@@ -1,6 +1,6 @@
-const inputMessages = {
-  requiredFiel: 'Campo obrigatório',
-  invalidEmail: 'E-mail inválido',
-};
+enum InputMessages {
+  RequiredFiel = 'Campo obrigatório',
+  InvalidEmail = 'E-mail inválido',
+}
 
-export default inputMessages;
+export default InputMessages;

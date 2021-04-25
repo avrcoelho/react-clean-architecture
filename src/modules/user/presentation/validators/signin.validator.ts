@@ -1,13 +1,13 @@
 import * as yup from 'yup';
 
-import inputMessages from '@/shared/presentation/contants/inputMessages';
+import InputMessages from '@/shared/presentation/contants/inputMessages';
 
 const signInValidator = yup.object({
   email: yup
     .string()
-    .email(inputMessages.invalidEmail)
-    .required(inputMessages.requiredFiel),
-  password: yup.string().required(inputMessages.requiredFiel),
+    .email(InputMessages.InvalidEmail)
+    .required(InputMessages.RequiredFiel),
+  password: yup.string().required(InputMessages.RequiredFiel),
 });
 
 export default signInValidator;

@@ -1,6 +1,7 @@
 import ICache from '@/shared/infra/cache/models/ICache.model';
 import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
 import { left, right, Either } from '@/shared/core/Either';
+import CacheKeys from '@/shared/presentation/contants/cacheKeys';
 import ISignInModel from '../domain/models/ISignIn.model';
 import {
   ISignInArgs,
@@ -22,7 +23,7 @@ class SignInUsecase implements ISignInUsecase {
 
       const parsedSignInResponse = JSON.stringify(data);
 
-      this.cache.save('@userData', parsedSignInResponse);
+      this.cache.save(CacheKeys.UserData, parsedSignInResponse);
 
       return right(data);
     } catch (error) {

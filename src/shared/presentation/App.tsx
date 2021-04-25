@@ -1,10 +1,10 @@
-import SignIn from '@/modules/user/presentation/pages/SignIn';
 import ToastifyContainer from './components/ToastifyContainer';
+import Routes from './routes';
 
 function App(): JSX.Element {
   return (
     <>
-      <SignIn />
+      <Routes />
       <ToastifyContainer />
     </>
   );

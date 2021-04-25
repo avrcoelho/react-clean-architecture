@@ -4,16 +4,16 @@ import { useHistory } from 'react-router-dom';
 import { ErrorOption } from 'react-hook-form';
 
 import { signUpUsecase } from '../../usecases';
-import { IUserArgs } from '../../domain/usecases/ISignUp.usecase';
+import { ISignUpArgs } from '../../domain/usecases/ISignUp.usecase';
 
 type Args = {
-  setError: (name: string, error: ErrorOption) => void;
+  setError: (name: keyof ISignUpArgs, error: ErrorOption) => void;
 };
 
 type UseSignUpHook = (
   args: Args,
 ) => {
-  signUp(data: IUserArgs): Promise<void>;
+  signUp(data: ISignUpArgs): Promise<void>;
   isLoading: boolean;
 };
 
@@ -36,7 +36,7 @@ export const useSignUp: UseSignUpHook = ({ setError }) => {
   );
 
   const signUp = useCallback(
-    async (data: IUserArgs) => {
+    async (data: ISignUpArgs) => {
       setIsLoading(true);
 
       const response = await signUpUsecase.execute(data);

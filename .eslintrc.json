@@ -46,6 +46,7 @@
       "@typescript-eslint/explicit-function-return-type":"off",
       "class-methods-use-this":"off",
       "no-shadow":"off",
+      "camelcase":"off",
       "import/extensions": [
         "error",
         "ignorePackages",

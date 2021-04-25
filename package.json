@@ -100,7 +100,8 @@
       "!<rootDir>/src/**/styles.ts",
       "!<rootDir>/src/**/__tests__/builders/*",
       "!<rootDir>/src/**/domain/usecases/*",
-      "!<rootDir>/src/**/constants/*"
+      "!<rootDir>/src/**/constants/*",
+      "!<rootDir>/src/**/routes/*"
     ]
   }
 }

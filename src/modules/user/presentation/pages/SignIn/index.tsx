@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 import InputText from '@/shared/presentation/components/inputs/Text';
 import { useYupValidationResolver } from '@/shared/presentation/hooks/useYupValidationResolver';
@@ -13,7 +14,7 @@ const SignIn = (): JSX.Element => {
   const { handleSubmit, register, errors } = useForm<ISignInArgs>({ resolver });
 
   return (
-    <main className="bg-gray-800 p-4 w-full min-h-screen flex justify-center items-center">
+    <main className="bg-gray-800 p-4 w-full min-h-screen flex flex-col justify-center items-center">
       <form
         onSubmit={handleSubmit(signIn)}
         className="w-full max-w-sm border-2 p-4 border-gray-600 rounded"
@@ -35,6 +36,10 @@ const SignIn = (): JSX.Element => {
           {isLoading ? 'Aguarde...' : 'Acessar'}
         </ButtonDefault>
       </form>
+
+      <Link to="/singup" className="text-purple-800 hover:underline mt-4">
+        Criar conta
+      </Link>
     </main>
   );
 };

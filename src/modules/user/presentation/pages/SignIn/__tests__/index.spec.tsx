@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import {
   fireEvent,
   render,
@@ -16,6 +17,11 @@ jest.mock('../../../hooks/useSignIn', () => ({
     signIn: mockedSignIn,
   }),
 }));
+jest.mock('react-router-dom', () => {
+  return {
+    Link: ({ children }: { children: ReactNode }) => children,
+  };
+});
 
 describe('SignIn Page', () => {
   it('should be able to show field errors', async () => {

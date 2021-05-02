@@ -1,7 +1,7 @@
-import ISignInDTO from '../../dtos/ISignIn.dto';
+import { ISignInArgs } from '../../domain/usecases/ISignIn.usecase';
 
 class SignInBuilder {
-  private readonly signInData: ISignInDTO = {
+  private readonly signInData: ISignInArgs = {
     email: 'johndoe@test.com',
     password: '123456',
   };
@@ -25,7 +25,7 @@ class SignInBuilder {
     return this;
   }
 
-  public build(): ISignInDTO {
+  public build(): ISignInArgs {
     return this.signInData;
   }
 }

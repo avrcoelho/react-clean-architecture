@@ -1,10 +1,11 @@
-import IUserDTO from '../../dtos/IUser.dto';
+import { ISignUpArgs } from '../../domain/usecases/ISignUp.usecase';
 
 class UserBuilder {
-  private readonly user: IUserDTO = {
+  private readonly user: ISignUpArgs = {
     fullname: 'John Doe',
     email: 'johndoe@test.com',
     password: '123456',
+    password_confirmation: '123456',
   };
 
   public static aUser(): UserBuilder {
@@ -31,7 +32,7 @@ class UserBuilder {
     return this;
   }
 
-  public build(): IUserDTO {
+  public build(): ISignUpArgs {
     return this.user;
   }
 }

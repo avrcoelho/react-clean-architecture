@@ -4,7 +4,7 @@ import { setupServer } from 'msw/node';
 import HttpClient from '@/shared/infra/http/httpClient/implementation/Axios';
 import UserBuilder from '../../__tests__/builders/User.builder';
 import SignUpService from '../SignUp.usecase';
-import { IUserArgs } from '../../domain/usecases/ISignUp.usecase';
+import { ISignUpArgs } from '../../domain/usecases/ISignUp.usecase';
 
 const BASE_URL = process.env.REACT_APP_API;
 const userResponse = {
@@ -34,7 +34,7 @@ describe('SignUp service', () => {
   afterAll(() => server.close());
 
   it('should be able to create user', async () => {
-    const signInData: IUserArgs = UserBuilder.aUser().build();
+    const signInData: ISignUpArgs = UserBuilder.aUser().build();
     const responseSignUp = await signUpService.execute(signInData);
 
     expect(responseSignUp.value).toEqual(userResponse);
@@ -51,7 +51,7 @@ describe('SignUp service', () => {
         );
       }),
     );
-    const signInData: IUserArgs = UserBuilder.aUser().build();
+    const signInData: ISignUpArgs = UserBuilder.aUser().build();
     const responseSignUp = await signUpService.execute(signInData);
 
     expect(responseSignUp.isLeft()).toBe(true);

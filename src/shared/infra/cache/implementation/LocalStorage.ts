@@ -1,7 +1,7 @@
 import ICacheModel from '../models/ICache.model';
 
 class LocalStorage implements ICacheModel {
-  private storage: Storage;
+  private readonly storage: Storage;
 
   constructor() {
     this.storage = localStorage;

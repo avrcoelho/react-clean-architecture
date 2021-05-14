@@ -8,9 +8,9 @@ import {
 import IHttpClientModel from '../models/IHttpClient.model';
 
 class AxiosHttpClient implements IHttpClientModel {
-  private baseUrl: string | undefined;
+  private readonly baseUrl: string | undefined;
 
-  private axiosInstance: AxiosInstance;
+  private readonly axiosInstance: AxiosInstance;
 
   constructor() {
     this.axiosInstance = axios.create({});

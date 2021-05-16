@@ -1,7 +1,7 @@
 import { ICreateActivityUsecaseArgs } from '../../domain/usecases/ICreateActivity.usecase';
 
 class ActivityBuilder {
-  private readonly signInData: ICreateActivityUsecaseArgs = {
+  private readonly activityData: ICreateActivityUsecaseArgs = {
     user_id: '1234567',
     time: '15:00',
     type: 'bike',
@@ -13,7 +13,7 @@ class ActivityBuilder {
   }
 
   public build(): ICreateActivityUsecaseArgs {
-    return this.signInData;
+    return this.activityData;
   }
 }
 

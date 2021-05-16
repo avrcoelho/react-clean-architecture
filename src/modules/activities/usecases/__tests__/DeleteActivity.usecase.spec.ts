@@ -6,7 +6,7 @@ import DeleteActivityUsecase from '../DeleteActivity.usecase';
 
 const BASE_URL = process.env.REACT_APP_API;
 const server = setupServer(
-  rest.delete(`${BASE_URL}/activities/:id`, (req, res, ctx) => {
+  rest.delete(`${BASE_URL}/activities/:id`, (req, res) => {
     return res();
   }),
 );

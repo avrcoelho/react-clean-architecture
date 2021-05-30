@@ -13,7 +13,7 @@ const ButtonDefault = ({
     <div className="flex flex-col mb-4">
       <button
         type="button"
-        className={`w-full max-w-md h-10 rounded cursor-pointer bg-purple-800 text-white transition-opacity hover:opacity-80 ${className}`}
+        className={`w-full max-w-lg h-10 rounded cursor-pointer bg-purple-800 text-white transition-opacity hover:opacity-80 ${className}`}
         {...rest}
       >
         {children}

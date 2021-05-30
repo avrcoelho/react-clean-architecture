@@ -19,8 +19,8 @@ const FormCreateActivity = (): JSX.Element => {
   } = useForm<ICreateActivityUsecaseArgs>({ resolver });
 
   return (
-    <form onSubmit={handleSubmit(create)} className="max-w-2xl p-4">
-      <fieldset className="border-2 p-4 border-gray-600 rounded flex flex-row gap-3">
+    <form onSubmit={handleSubmit(create)} className="w-full sm:max-w-2xl p-4">
+      <fieldset className="border-2 px-4 pt-4 pb-2 border-gray-600 rounded sm:flex flex-row gap-3">
         <legend className="text-gray-400">Nova atividade</legend>
 
         <InputText

@@ -15,7 +15,7 @@ const InputText = ({
       <input
         type="text"
         ref={register}
-        className={`w-full max-w-md h-10 bg-transparent border-2 ${
+        className={`w-full max-w-lg h-10 bg-transparent border-2 ${
           error ? 'border-red-400' : 'border-gray-600'
         }  rounded px-3 text-white`}
         {...rest}

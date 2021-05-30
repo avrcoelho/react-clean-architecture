@@ -10,8 +10,8 @@ import { createActivityUsecase } from '../../../usecases';
 const spyOnCreateActivityUsecase = jest.spyOn(createActivityUsecase, 'execute');
 const activityData = ActivityBuilder.aActivityData().build();
 
-describe('SignIn hook', () => {
-  it('should be able to have success signip', async () => {
+describe('CreateActivity hook', () => {
+  it('should be able to have success create activity', async () => {
     const spyToastSuccess = jest.spyOn(toast, 'success');
     spyOnCreateActivityUsecase.mockImplementation(async () =>
       right({} as IActivityModel),
@@ -26,7 +26,7 @@ describe('SignIn hook', () => {
     expect(spyToastSuccess).toHaveBeenCalled();
   });
 
-  it('should be able to have error signip', async () => {
+  it('should be able to have error create activity', async () => {
     spyOnCreateActivityUsecase.mockImplementation(async () =>
       left('has error'),
     );

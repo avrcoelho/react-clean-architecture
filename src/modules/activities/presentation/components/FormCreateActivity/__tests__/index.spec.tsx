@@ -54,7 +54,7 @@ describe('FormCreateActivity component', () => {
     expect(submitButton).toHaveAttribute('disabled');
   });
 
-  it('should be able to call signIn function', async () => {
+  it('should be able to call create function', async () => {
     render(<FormCreateActivity />);
     const submitButton = screen.getByText('Adicionar');
     const typeField = screen.getByRole('combobox');
@@ -64,7 +64,7 @@ describe('FormCreateActivity component', () => {
     act(() => {
       fireEvent.change(typeField, { target: { value: 'run' } });
       fireEvent.change(timeField, { target: { value: '03:00' } });
-      fireEvent.change(dateField, { target: { value: '2021-08-31' } });
+      fireEvent.change(dateField, { target: { value: '31/08/1993' } });
 
       fireEvent.click(submitButton);
     });

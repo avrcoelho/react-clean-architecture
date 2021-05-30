@@ -1,29 +1,36 @@
-import { LegacyRef } from 'react';
-import Input, { Props as InputProps, ReactInputMask } from 'react-input-mask';
+import Input, { Props as InputProps } from 'react-input-mask';
+import { Controller, Control } from 'react-hook-form';
 
 interface InputTextProps extends InputProps {
-  register: LegacyRef<ReactInputMask>;
+  control: Control<Record<string, any>> | undefined;
   mask: string;
   maskChar?: null;
   error?: string;
+  name: string;
+  placeholder: string;
 }
 
 const InputText = ({
-  register,
+  control,
   error,
   mask,
+  name,
+  placeholder,
   maskChar = null,
-  ...rest
 }: InputTextProps): JSX.Element => {
   return (
     <div className="flex flex-col mb-4">
-      <Input
+      <Controller
+        as={Input}
+        name={name}
+        placeholder={placeholder}
         mask={mask}
-        ref={register}
+        control={control}
+        defaultValue=""
         className={`w-full max-w-lg h-10 bg-transparent border-2 ${
           error ? 'border-red-400' : 'border-gray-600'
         }  rounded px-3 text-white`}
-        {...{ ...rest, maskChar }}
+        {...{ maskChar }}
       />
       {error && <small className="text-red-400">{error}</small>}
     </div>

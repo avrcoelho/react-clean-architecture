@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import InputText from '@/shared/presentation/components/inputs/Text';
+import InputMask from '@/shared/presentation/components/inputs/Mask';
 import Select from '@/shared/presentation/components/inputs/Select';
 import ButtonDefault from '@/shared/presentation/components/Buttons/Default';
 import { useYupValidationResolver } from '@/shared/presentation/hooks/useYupValidationResolver';
@@ -31,6 +31,7 @@ const FormCreateActivity = (): JSX.Element => {
   const {
     handleSubmit,
     register,
+    control,
     errors,
   } = useForm<ICreateActivityUsecaseArgs>({ resolver });
 
@@ -45,16 +46,18 @@ const FormCreateActivity = (): JSX.Element => {
           register={register}
           error={errors.type?.message}
         />
-        <InputText
+        <InputMask
           name="time"
           placeholder="Tempo"
-          register={register}
+          mask="99:99"
+          control={control}
           error={errors.time?.message}
         />
-        <InputText
+        <InputMask
           name="date"
           placeholder="Data"
-          register={register}
+          mask="99/99/9999"
+          control={control}
           error={errors.date?.message}
         />
         <ButtonDefault type="submit" className="px-4" disabled={isLoading}>

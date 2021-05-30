@@ -32,7 +32,7 @@ const SignIn = (): JSX.Element => {
           register={register}
           error={errors.password?.message}
         />
-        <ButtonDefault type="submit" disabled={isLoading}>
+        <ButtonDefault type="submit" disabled={isLoading} className="mt-4">
           {isLoading ? 'Aguarde...' : 'Acessar'}
         </ButtonDefault>
       </form>

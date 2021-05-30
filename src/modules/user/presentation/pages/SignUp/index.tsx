@@ -46,7 +46,7 @@ const SignUp = (): JSX.Element => {
           register={register}
           error={errors.password_confirmation?.message}
         />
-        <ButtonDefault type="submit" disabled={isLoading}>
+        <ButtonDefault type="submit" disabled={isLoading} className="mt-4">
           {isLoading ? 'Aguarde...' : 'Criar'}
         </ButtonDefault>
       </form>

@@ -20,6 +20,7 @@ const Select = ({
   return (
     <div className="flex flex-col mb-4">
       <select
+        defaultValue=""
         ref={register}
         className={`w-full max-w-lg h-10 bg-transparent border-2 ${
           error ? 'border-red-400' : 'border-gray-600'
@@ -27,7 +28,7 @@ const Select = ({
         {...rest}
       >
         <option value="" disabled hidden>
-          Selecione
+          Selecione...
         </option>
         {options.map(({ label, value }) => (
           <option key={value} value={value}>

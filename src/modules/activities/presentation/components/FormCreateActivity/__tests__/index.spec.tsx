@@ -57,7 +57,7 @@ describe('FormCreateActivity component', () => {
   it('should be able to call signIn function', async () => {
     render(<FormCreateActivity />);
     const submitButton = screen.getByText('Adicionar');
-    const typeField = screen.getByPlaceholderText('Tipo');
+    const typeField = screen.getByRole('combobox');
     const timeField = screen.getByPlaceholderText('Tempo');
     const dateField = screen.getByPlaceholderText('Data');
 

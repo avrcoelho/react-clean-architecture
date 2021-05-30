@@ -1,11 +1,27 @@
 import { useForm } from 'react-hook-form';
 
 import InputText from '@/shared/presentation/components/inputs/Text';
+import Select from '@/shared/presentation/components/inputs/Select';
 import ButtonDefault from '@/shared/presentation/components/Buttons/Default';
 import { useYupValidationResolver } from '@/shared/presentation/hooks/useYupValidationResolver';
 import { ICreateActivityUsecaseArgs } from '@/modules/activities/domain/usecases/ICreateActivity.usecase';
 import activityValidator from '../../validators/activity.validator';
 import { useCreateActivity } from '../../hooks/useCreateActivity';
+
+const TYPES = [
+  {
+    value: 'bike',
+    label: 'Bicicleta',
+  },
+  {
+    value: 'run',
+    label: 'Corrida',
+  },
+  {
+    value: 'swimming',
+    label: 'Natação',
+  },
+];
 
 const FormCreateActivity = (): JSX.Element => {
   const { isLoading, create } = useCreateActivity();
@@ -23,9 +39,9 @@ const FormCreateActivity = (): JSX.Element => {
       <fieldset className="border-2 px-4 pt-4 pb-2 border-gray-600 rounded sm:flex flex-row gap-3">
         <legend className="text-gray-400">Nova atividade</legend>
 
-        <InputText
+        <Select
           name="type"
-          placeholder="Tipo"
+          options={TYPES}
           register={register}
           error={errors.type?.message}
         />

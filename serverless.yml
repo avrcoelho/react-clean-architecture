@@ -1,0 +1,13 @@
+component: website               # (required) name of the component. In that case, it's website.
+name: react-sls-test                 # (required) name of your website component instance.
+stage: dev                       # (optional) serverless dashboard stage. default is dev.
+
+inputs:
+  bucketName: react-sls-test          # (optional) aws bucket name. default is an auto generated name.
+  indexDocument: index.html      # (optional) index document for your website. default is index.html.
+  errorDocument: index.html      # (optional) error document for your website. default is index.html.
+  src:
+    src: ./          # the input source folder
+    hook: npm run build # the hook you want to run
+    dist: ./build        # the output dist folder
+    

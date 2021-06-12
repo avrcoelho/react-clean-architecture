@@ -5,3 +5,7 @@
 select option {
   background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
 }
+
+.btn-delete {
+  @apply h-6 px-2 bg-red-500 text-white mt-3  rounded shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75;
+}

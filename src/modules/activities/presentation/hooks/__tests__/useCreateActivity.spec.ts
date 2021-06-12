@@ -10,6 +10,12 @@ import { createActivityUsecase } from '../../../usecases';
 const spyOnCreateActivityUsecase = jest.spyOn(createActivityUsecase, 'execute');
 const activityData = ActivityBuilder.aActivityData().build();
 
+jest.mock('../../contexts/hooks/useGetActivities', () => ({
+  useGetActivities: () => ({
+    addActivity: jest.fn(),
+  }),
+}));
+
 describe('CreateActivity hook', () => {
   it('should be able to have success create activity', async () => {
     const spyToastSuccess = jest.spyOn(toast, 'success');

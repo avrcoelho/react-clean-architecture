@@ -21,7 +21,7 @@ const GetActivitiesContext = createContext<GetActivitiesContextData>(
   {} as GetActivitiesContextData,
 );
 
-export const CreatePropertyProvider: FC = ({ children }) => {
+export const GetActivitiesProvider: FC = ({ children }) => {
   const [activities, setActivities] = useState<IActivityModel[]>([]);
 
   useEffect(() => {
@@ -54,5 +54,5 @@ export const CreatePropertyProvider: FC = ({ children }) => {
   );
 };
 
-export const useCreateProperty = (): GetActivitiesContextData =>
+export const useGetActivities = (): GetActivitiesContextData =>
   useContext(GetActivitiesContext);

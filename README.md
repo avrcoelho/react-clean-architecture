@@ -16,7 +16,7 @@ Application developed in React.js following the principles of clean architecture
 
 Inside the newly created project, you can run some built-in commands:
 
-### `npm start:dev` or `yarn start:dev`
+### `npm start` or `yarn start`
 
 Runs the app in development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

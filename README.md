@@ -1,4 +1,4 @@
-# React Clean Architeture Aplication
+# React Clean Architeture Application
 
 Application developed in React.js following the principles of clean architecture
 

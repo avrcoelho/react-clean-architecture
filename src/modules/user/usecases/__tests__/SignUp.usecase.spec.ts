@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import HttpClient from '@/shared/infra/http/httpClient/implementation/Axios';
+import HttpClient from '@/shared/infra/http/httpClient/Axios';
 import UserBuilder from '../../__tests__/builders/User.builder';
 import SignUpService from '../SignUp.usecase';
 import { ISignUpArgs } from '../../domain/usecases/ISignUp.usecase';

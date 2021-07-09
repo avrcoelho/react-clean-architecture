@@ -1,6 +1,6 @@
-import ICacheModel from '../models/ICache.model';
+import Cache from '@/shared/usecases/ports/cache';
 
-class LocalStorage implements ICacheModel {
+class LocalStorage implements Cache {
   private readonly storage: Storage;
 
   constructor() {

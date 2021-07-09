@@ -1,4 +1,4 @@
-import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
+import { HttpClient } from '@/shared/usecases/ports/httpClient';
 import { left, right, Either } from '@/shared/core/Either';
 import IUserModel from '../domain/models/IUser.model';
 import {
@@ -7,7 +7,7 @@ import {
 } from '../domain/usecases/ISignUp.usecase';
 
 class SignUpUsecase implements ISignUpUsecase {
-  constructor(private readonly httpClient: IHttpClientModel) {}
+  constructor(private readonly httpClient: HttpClient) {}
 
   async execute(userData: ISignUpArgs): Promise<Either<any, IUserModel>> {
     try {

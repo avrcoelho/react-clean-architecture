@@ -1,4 +1,4 @@
-import LocalStorage from './implementation/LocalStorage';
+import LocalStorage from './LocalStorage';
 
 const providers = {
   LocalStorage: new LocalStorage(),

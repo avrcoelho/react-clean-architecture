@@ -1,10 +1,11 @@
 import { Either, left, right } from '@/shared/core/Either';
-import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
+import { HttpClient } from '@/shared/usecases/ports/httpClient';
+
 import IActivityModel from '../domain/models/IActivity.model';
 import { IDeleteActivityUsecase } from '../domain/usecases/IDeleteActivity.usecase';
 
 class DeleteActivityUsecase implements IDeleteActivityUsecase {
-  constructor(private readonly htttpClient: IHttpClientModel) {}
+  constructor(private readonly htttpClient: HttpClient) {}
 
   async execute(id: string): Promise<Either<any, true>> {
     try {

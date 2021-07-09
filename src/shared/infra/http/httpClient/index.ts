@@ -1,4 +1,4 @@
-import Axios from './implementation/Axios';
+import Axios from './Axios';
 
 const providers = {
   Axios: new Axios(),

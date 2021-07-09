@@ -1,4 +1,4 @@
-import LocalStorage from '../implementation/LocalStorage';
+import LocalStorage from '../LocalStorage';
 
 let localStorageCache: LocalStorage;
 

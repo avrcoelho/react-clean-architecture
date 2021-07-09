@@ -1,9 +1,9 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import ICacheModel from '@/shared/infra/cache/models/ICache.model';
-import HttpClient from '@/shared/infra/http/httpClient/implementation/Axios';
-import Cache from '@/shared/infra/cache/implementation/LocalStorage';
+import CacheModel from '@/shared/usecases/ports/cache';
+import HttpClient from '@/shared/infra/http/httpClient/Axios';
+import Cache from '@/shared/infra/cache/LocalStorage';
 import SignInBuilder from '../../__tests__/builders/SignIn.builder';
 import SignInUsecase from '../SignIn.usecase';
 import { ISignInArgs } from '../../domain/usecases/ISignIn.usecase';
@@ -20,7 +20,7 @@ const server = setupServer(
   }),
 );
 let httpClient: HttpClient;
-let cache: ICacheModel;
+let cache: CacheModel;
 let signInService: SignInUsecase;
 
 describe('SignIn usecase', () => {

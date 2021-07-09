@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import HttpClient from '@/shared/infra/http/httpClient/implementation/Axios';
+import HttpClient from '@/shared/infra/http/httpClient/Axios';
 import CreateActivityUsecase from '../CreateActivity.usecase';
 import ActivityBuilder from '../../__tests__/builders/Activity.builder';
 

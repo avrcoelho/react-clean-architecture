@@ -1,5 +1,5 @@
 import { Either, left, right } from '@/shared/core/Either';
-import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
+import { HttpClient } from '@/shared/usecases/ports/httpClient';
 import IActivityModel from '../domain/models/IActivity.model';
 import {
   ICreateActivityUsecase,
@@ -7,7 +7,7 @@ import {
 } from '../domain/usecases/ICreateActivity.usecase';
 
 class CreateActivityUsecase implements ICreateActivityUsecase {
-  constructor(private readonly htttpClient: IHttpClientModel) {}
+  constructor(private readonly htttpClient: HttpClient) {}
 
   async execute(
     args: ICreateActivityUsecaseArgs,

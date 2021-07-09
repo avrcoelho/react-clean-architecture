@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import HttpClient from '@/shared/infra/http/httpClient/implementation/Axios';
+import HttpClient from '@/shared/infra/http/httpClient/Axios';
 import DeleteActivityUsecase from '../DeleteActivity.usecase';
 
 const BASE_URL = process.env.REACT_APP_API;

@@ -1,13 +1,8 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-import {
-  IHttpClientDeleteDTO,
-  IHttpClientGetDTO,
-  IHttpClientPostDTO,
-} from '../dtos/IHttpClient.dto';
-import IHttpClientModel from '../models/IHttpClient.model';
+import { HttpClient, HttpRequest } from '@/shared/usecases/ports/httpClient';
 
-class AxiosHttpClient implements IHttpClientModel {
+class AxiosHttpClient implements HttpClient {
   private readonly baseUrl: string | undefined;
 
   private readonly axiosInstance: AxiosInstance;
@@ -21,7 +16,7 @@ class AxiosHttpClient implements IHttpClientModel {
     url,
     params = null,
     headers = null,
-  }: IHttpClientGetDTO): Promise<AxiosResponse<TResponse>> {
+  }: HttpRequest): Promise<AxiosResponse<TResponse>> {
     return this.axiosInstance({
       method: 'GET',
       url: `${this.baseUrl}${url}`,
@@ -35,7 +30,7 @@ class AxiosHttpClient implements IHttpClientModel {
     params = null,
     data = null,
     headers = null,
-  }: IHttpClientPostDTO): Promise<AxiosResponse<TResponse>> {
+  }: HttpRequest): Promise<AxiosResponse<TResponse>> {
     return this.axiosInstance({
       method: 'POST',
       url: `${this.baseUrl}${url}`,
@@ -49,7 +44,7 @@ class AxiosHttpClient implements IHttpClientModel {
     url,
     params = null,
     headers = null,
-  }: IHttpClientDeleteDTO): Promise<AxiosResponse<TResponse>> {
+  }: HttpRequest): Promise<AxiosResponse<TResponse>> {
     return this.axiosInstance({
       method: 'DELETE',
       url: `${this.baseUrl}${url}`,

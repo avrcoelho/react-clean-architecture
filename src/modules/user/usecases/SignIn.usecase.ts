@@ -1,5 +1,5 @@
-import ICache from '@/shared/infra/cache/models/ICache.model';
-import IHttpClientModel from '@/shared/infra/http/httpClient/models/IHttpClient.model';
+import { HttpClient } from '@/shared/usecases/ports/httpClient';
+import Cache from '@/shared/usecases/ports/cache';
 import { left, right, Either } from '@/shared/core/Either';
 import CacheKeys from '@/shared/presentation/constants/cacheKeys';
 import ISignInModel from '../domain/models/ISignIn.model';
@@ -10,8 +10,8 @@ import {
 
 class SignInUsecase implements ISignInUsecase {
   constructor(
-    private readonly httpClient: IHttpClientModel,
-    private readonly cache: ICache,
+    private readonly httpClient: HttpClient,
+    private readonly cache: Cache,
   ) {}
 
   async execute(signInData: ISignInArgs): Promise<Either<any, ISignInModel>> {

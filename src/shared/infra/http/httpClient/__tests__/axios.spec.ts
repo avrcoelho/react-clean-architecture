@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import Axios from '../implementation/Axios';
+import Axios from '../Axios';
 
 let axios: Axios;
 

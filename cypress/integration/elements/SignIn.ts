@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 
 export class SignIn {
-  visit() {
-    cy.visit('/');
+  visit(url = '') {
+    cy.visit(`/${url}`);
   }
 
   submitFormCompleted() {

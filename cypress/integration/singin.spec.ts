@@ -29,7 +29,7 @@ describe('SignIn Page', () => {
       },
     }).as('signIn');
     signIn.submitFormCompleted();
-    signIn.visit('dashboard');
+    cy.visit('dashboard');
     cy.contains('Atividades');
   });
 
@@ -39,5 +39,10 @@ describe('SignIn Page', () => {
     }).as('signIn');
     signIn.submitFormCompleted();
     cy.contains('Erro ao acessar conta. Verifique seu e-mail/senha');
+  });
+
+  it('should be be able to open signup page', () => {
+    cy.contains('Criar conta').click();
+    cy.contains('Criar conta');
   });
 });
